@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bloco de Notas Mundial</string>
+    <string name="unexpected_error" translatable="false">Erro inesperado</string>
+    <string name="note_list_invalid_password_toast">Senha inválida</string>
+    <string name="note_list_dialog_title">Senha requerida</string>
+    <string name="note_list_dialog_button">Continuar</string>
+    <string name="note_list_search_no_results">Sem resultados</string>
+    <string name="note_list_search_hint">Pesquise por título</string>
+    <string name="note_form_title_label">Título</string>
+    <string name="note_form_content_label">Conteúdo</string>
+    <string name="note_form_password_label">Senha</string>
+    <string name="note_form_save_button">Salvar</string>
+    <string name="note_form_success_toast">Nota salva</string>
+    <string name="note_form_password_required">Senha habilitada</string>
+</resources>

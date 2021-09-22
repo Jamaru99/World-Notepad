@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="layout_padding">16dp</dimen>
+    <dimen name="margin_vertical">12dp</dimen>
+
+    <dimen name="edit_text_search_margin">16dp</dimen>
+
+    <dimen name="list_item_element_margin">16dp</dimen>
+</resources>
