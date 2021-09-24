@@ -1,4 +1,4 @@
-# Policy Privacy
+# Privacy Policy
 
 This app does not collect or share any kind of user data.
 Note passwords can be viewed and edited by administrators if they deem it necessary or beneficial.
