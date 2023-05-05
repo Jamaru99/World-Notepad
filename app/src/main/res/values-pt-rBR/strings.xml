@@ -13,4 +13,5 @@
     <string name="note_form_save_button">Salvar</string>
     <string name="note_form_success_toast">Nota salva</string>
     <string name="note_form_password_required">Senha habilitada</string>
+    <string name="refresh">Atualizar</string>
 </resources>

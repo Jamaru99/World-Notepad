@@ -22,7 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
@@ -40,6 +40,7 @@ public class NoteListActivity extends AppCompatActivity {
 
     private NoteListViewModel viewModel;
     private NoteListAdapter adapter;
+    private Button btnRefresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,7 @@ public class NoteListActivity extends AppCompatActivity {
         vfNoteList = findViewById(R.id.vfNoteList);
         etSearch = findViewById(R.id.etSearch);
         adView = findViewById(R.id.adView);
+        btnRefresh = findViewById(R.id.btnRefresh);
 
         doAdSetup();
         viewModel = new ViewModelProvider(this).get(NoteListViewModel.class);
@@ -91,12 +93,7 @@ public class NoteListActivity extends AppCompatActivity {
     }
 
     private void setEventListeners(){
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goToNoteForm(null);
-            }
-        });
+        fab.setOnClickListener(view -> goToNoteForm(null));
 
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override
@@ -109,6 +106,10 @@ public class NoteListActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) { }
+        });
+
+        btnRefresh.setOnClickListener(v -> {
+            viewModel.setNotes();
         });
     }
 

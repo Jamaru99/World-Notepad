@@ -7,6 +7,7 @@ import com.example.globalnotepadmobile.model.Note;
 import com.example.globalnotepadmobile.repository.ApiService;
 
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -14,9 +15,11 @@ import retrofit2.Response;
 
 public class NoteListViewModel extends ViewModel {
 
+    private static final int STATUS_LOADING = 0;
     private static final int STATUS_SUCCESS_WITH_RESULTS = 1;
     private static final int STATUS_SUCCESS_WITH_NO_RESULTS = 2;
     private static final int STATUS_ERROR = 3;
+    private static final int HTTP_OK = 200;
 
     private MutableLiveData<List<Note>> notesLiveData;
     private MutableLiveData<Integer> statusLiveData;
@@ -35,16 +38,26 @@ public class NoteListViewModel extends ViewModel {
     }
 
     void setNotes() {
+        statusLiveData.setValue(STATUS_LOADING);
         ApiService.getInstance().getNoteService().getNotes().enqueue(new Callback<List<Note>>() {
             @Override
             public void onResponse(Call<List<Note>> call, Response<List<Note>> response) {
-                notesLiveData.setValue(response.body());
-                statusLiveData.setValue(STATUS_SUCCESS_WITH_RESULTS);
+                if (response.code() == HTTP_OK) {
+                    notesLiveData.setValue(response.body());
+                    statusLiveData.setValue(STATUS_SUCCESS_WITH_RESULTS);
+                } else {
+                    statusLiveData.setValue(STATUS_ERROR);
+                }
             }
 
             @Override
             public void onFailure(Call<List<Note>> call, Throwable t) {
-                statusLiveData.setValue(STATUS_ERROR);
+                String timeoutMessage = "timeout";
+                if (Objects.equals(t.getMessage(), timeoutMessage)) {
+                    setNotes();
+                } else {
+                    statusLiveData.setValue(STATUS_ERROR);
+                }
             }
         });
     }

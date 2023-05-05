@@ -2,6 +2,7 @@
     <string name="app_name">World Notepad</string>
 
     <string name="unexpected_error">Unexpected Error</string>
+    <string name="refresh">Refresh</string>
 
     <!--note list-->
     <string name="note_list_invalid_password_toast">Invalid password</string>
