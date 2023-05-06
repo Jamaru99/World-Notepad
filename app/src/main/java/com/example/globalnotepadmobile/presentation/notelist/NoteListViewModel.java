@@ -52,12 +52,7 @@ public class NoteListViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<List<Note>> call, Throwable t) {
-                String timeoutMessage = "timeout";
-                if (Objects.equals(t.getMessage(), timeoutMessage)) {
-                    setNotes();
-                } else {
-                    statusLiveData.setValue(STATUS_ERROR);
-                }
+                setNotes();
             }
         });
     }
