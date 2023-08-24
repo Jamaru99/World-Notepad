@@ -7,8 +7,3 @@ Note passwords can be viewed and edited by administrators if they deem it necess
 
 Esta aplicação não coleta ou compartilha nenhum tipo de dado pessoal.
 As senhas das notas podem ser vistas e editadas pelos administradores, caso eles julguem necessário ou benéfico.
-
-
-# Warning
-
-This app may be disabled by June 2023.
